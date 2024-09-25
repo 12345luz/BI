@@ -546,12 +546,93 @@
       <to>Concat fields</to>
       <enabled>Y</enabled>
     </hop>
-    <hop>
-      <from>DATACUSTOMERS</from>
-      <to>Execute SQL script</to>
-      <enabled>Y</enabled>
-    </hop>
   </order>
+  <step>
+    <name>Concat fields</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>-</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name/>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>City</name>
+        <type>None</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Country</name>
+        <type>None</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concatenar</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1232</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>DATACUSTOMERS</name>
     <type>TableInput</type>
@@ -590,8 +671,8 @@ FROM dbo.Customers
         <storagetype>normal</storagetype>
         <name>CustomerID</name>
         <length>-1</length>
-        <precision>0</precision>
-        <origin>Table input</origin>
+        <precision>-1</precision>
+        <origin>DATACUSTOMERS</origin>
         <comments>CustomerID</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -614,7 +695,7 @@ FROM dbo.Customers
         <name>CompanyName</name>
         <length>40</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>DATACUSTOMERS</origin>
         <comments>CompanyName</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -637,7 +718,7 @@ FROM dbo.Customers
         <name>ContactName</name>
         <length>30</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>DATACUSTOMERS</origin>
         <comments>ContactName</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -660,7 +741,7 @@ FROM dbo.Customers
         <name>ContactTitle</name>
         <length>30</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>DATACUSTOMERS</origin>
         <comments>ContactTitle</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -683,7 +764,7 @@ FROM dbo.Customers
         <name>Address</name>
         <length>60</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>DATACUSTOMERS</origin>
         <comments>Address</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -706,7 +787,7 @@ FROM dbo.Customers
         <name>City</name>
         <length>15</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>DATACUSTOMERS</origin>
         <comments>City</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -729,7 +810,7 @@ FROM dbo.Customers
         <name>Region</name>
         <length>15</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>DATACUSTOMERS</origin>
         <comments>Region</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -752,7 +833,7 @@ FROM dbo.Customers
         <name>PostalCode</name>
         <length>10</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>DATACUSTOMERS</origin>
         <comments>PostalCode</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -775,7 +856,7 @@ FROM dbo.Customers
         <name>Country</name>
         <length>15</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>DATACUSTOMERS</origin>
         <comments>Country</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -798,7 +879,7 @@ FROM dbo.Customers
         <name>Phone</name>
         <length>24</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>DATACUSTOMERS</origin>
         <comments>Phone</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -821,7 +902,7 @@ FROM dbo.Customers
         <name>Fax</name>
         <length>24</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>DATACUSTOMERS</origin>
         <comments>Fax</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -850,6 +931,156 @@ FROM dbo.Customers
     <GUI>
       <xloc>304</xloc>
       <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Data validator</name>
+    <type>Validator</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <validate_all>N</validate_all>
+    <concat_errors>N</concat_errors>
+    <concat_separator>|</concat_separator>
+    <validator_field>
+      <name>Region</name>
+      <validation_name>data region</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>N</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression/>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>LONDON</send_true_to>
+    <send_false_to>NOT LONDON</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>City</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>London</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>LONDON</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>NOT LONDON</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1144,244 +1375,8 @@ FROM dbo.Customers
     </GUI>
   </step>
   <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>LONDON</send_true_to>
-    <send_false_to>NOT LONDON</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>City</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>London</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>304</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Data validator</name>
-    <type>Validator</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <validate_all>N</validate_all>
-    <concat_errors>N</concat_errors>
-    <concat_separator>|</concat_separator>
-    <validator_field>
-      <name>Region</name>
-      <validation_name>data region</validation_name>
-      <max_length/>
-      <min_length/>
-      <null_allowed>N</null_allowed>
-      <only_null_allowed>N</only_null_allowed>
-      <only_numeric_allowed>N</only_numeric_allowed>
-      <data_type>None</data_type>
-      <data_type_verified>N</data_type_verified>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <max_value/>
-      <min_value/>
-      <start_string/>
-      <end_string/>
-      <start_string_not_allowed/>
-      <end_string_not_allowed/>
-      <regular_expression/>
-      <regular_expression_not_allowed/>
-      <error_code/>
-      <error_description/>
-      <is_sourcing_values>N</is_sourcing_values>
-      <sourcing_step/>
-      <sourcing_field/>
-      <allowed_value/>
-    </validator_field>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>480</xloc>
-      <yloc>176</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>LONDON</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>544</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>NOT LONDON</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>544</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Concat fields</name>
-    <type>ConcatFields</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator>-</separator>
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name/>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>City</name>
-        <type>None</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Country</name>
-        <type>None</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <ConcatFields>
-      <targetFieldName>concatenar</targetFieldName>
-      <targetFieldLength>0</targetFieldLength>
-      <removeSelectedFields>N</removeSelectedFields>
-    </ConcatFields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1232</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Execute SQL script</name>
-    <type>ExecSQL</type>
+    <name>Consulta_Customers</name>
+    <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1391,18 +1386,268 @@ FROM dbo.Customers
       <schema_name/>
     </partitioning>
     <connection>LuzOrtegaDB</connection>
+    <sql>SELECT * FROM Customers WHERE CustomerID='ALFKI'</sql>
+    <limit>0</limit>
+    <lookup/>
     <execute_each_row>N</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>N</replace_variables>
-    <quoteString>N</quoteString>
-    <sql/>
-    <set_params>N</set_params>
-    <insert_field/>
-    <update_field/>
-    <delete_field/>
-    <read_field/>
-    <arguments>
-    </arguments>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>CustomerID</name>
+        <length>-1</length>
+        <precision>0</precision>
+        <origin>Table input</origin>
+        <comments>CustomerID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>CompanyName</name>
+        <length>40</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>CompanyName</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ContactName</name>
+        <length>30</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>ContactName</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ContactTitle</name>
+        <length>30</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>ContactTitle</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Address</name>
+        <length>60</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>Address</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>City</name>
+        <length>15</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>City</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Region</name>
+        <length>15</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>Region</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>PostalCode</name>
+        <length>10</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>PostalCode</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Country</name>
+        <length>15</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>Country</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Phone</name>
+        <length>24</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>Phone</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Fax</name>
+        <length>24</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>Fax</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1412,8 +1657,8 @@ FROM dbo.Customers
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
-      <yloc>496</yloc>
+      <xloc>112</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
